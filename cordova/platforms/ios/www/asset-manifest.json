@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "./static/css/main.ea6862ae.chunk.css",
+    "main.js": "./static/js/main.a89b8dcc.chunk.js",
+    "main.js.map": "./static/js/main.a89b8dcc.chunk.js.map",
+    "runtime~main.js": "./static/js/runtime~main.a72a57c4.js",
+    "runtime~main.js.map": "./static/js/runtime~main.a72a57c4.js.map",
+    "static/css/2.627926fe.chunk.css": "./static/css/2.627926fe.chunk.css",
+    "static/js/2.b3e54575.chunk.js": "./static/js/2.b3e54575.chunk.js",
+    "static/js/2.b3e54575.chunk.js.map": "./static/js/2.b3e54575.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.3f5b7bddc3a5b1f695d413da98b8a886.js": "./precache-manifest.3f5b7bddc3a5b1f695d413da98b8a886.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/2.627926fe.chunk.css.map": "./static/css/2.627926fe.chunk.css.map",
+    "static/css/main.ea6862ae.chunk.css.map": "./static/css/main.ea6862ae.chunk.css.map",
+    "static/media/style.css": "./static/media/Alef-Regular.b2461283.woff2",
+    "static/media/clock.svg": "./static/media/clock.bb3e6777.svg",
+    "static/media/cube.svg": "./static/media/cube.334f7dbd.svg",
+    "static/media/globe.svg": "./static/media/globe.b7a7ab2e.svg",
+    "static/media/pencils.svg": "./static/media/pencils.ef8e4e3c.svg",
+    "static/media/plant.svg": "./static/media/plant.e8aed275.svg",
+    "static/media/plus.jpg": "./static/media/plus.e5d0575a.jpg",
+    "static/media/speakers.svg": "./static/media/speakers.2c4a4bb0.svg",
+    "static/media/sticker.svg": "./static/media/sticker.f0ab06a6.svg",
+    "static/media/הדרכה.png": "./static/media/הדרכה.2d854e65.png",
+    "static/media/הוספה.png": "./static/media/הוספה.2d854e65.png"
+  }
+}
