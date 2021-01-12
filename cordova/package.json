@@ -26,7 +26,17 @@
         "PHOTO_LIBRARY_USAGE_DESCRIPTION": " "
       },
       "cordova-plugin-camera": {},
-      "cordova-plugin-file": {}
+      "cordova-plugin-file": {},
+      "cordova-plugin-x-socialsharing": {
+        "PHOTO_LIBRARY_ADD_USAGE_DESCRIPTION": "This app requires photo library access to function properly.",
+        "PHOTO_LIBRARY_USAGE_DESCRIPTION": "This app requires photo library access to function properly."
+      },
+      "cordova-plugin-media-capture": {}
     }
+  },
+  "dependencies": {
+    "cordova-plugin-media-capture": "3.0.3",
+    "cordova-plugin-x-socialsharing": "6.0.2",
+    "es6-promise-plugin": "4.2.2"
   }
 }

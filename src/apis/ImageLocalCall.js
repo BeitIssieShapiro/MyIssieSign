@@ -14,7 +14,7 @@ const getImageContent = (image):string => {
  * @returns {string}
  */
 export const imageLocalCall = (imageName:string) => {
-    if (imageName.startsWith("file:")) {
+    if (imageName.startsWith("file:") || imageName.startsWith("app:")) {
         return imageName; 
     }
     let res = getImageContent(imageName);

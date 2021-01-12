@@ -164,6 +164,7 @@ class Word extends IssieBase {
             lines[curLine].push(card);
         }
 
+
         return (
             // <div className={this.props.InSearch?"subTileContainer":"tileContainer"} style={{ width: width, transform: 'translateX(' + (this.props.InSearch ? 0 : wordsTranslateX) + 'px)' }}>
             //     {wordsElements}
@@ -185,6 +186,8 @@ class Word extends IssieBase {
                         {line}
                     </Rope>
                 })}
+                
+                
             </div>
         )
     }

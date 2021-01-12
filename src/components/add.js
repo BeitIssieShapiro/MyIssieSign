@@ -6,7 +6,7 @@ import { createDir, mvFileIntoDir } from '../apis/file';
 import { reloadAdditionals } from "../apis/catalog";
 import '../css/add.css';
 import { AttachButton, CameraButton, VideoButton } from "./ui-elements";
-import { withAlert, transitions } from 'react-alert'
+import { withAlert } from 'react-alert'
 import Shelf from '../containers/Shelf'
 import { translate, fTranslate } from "../utils/lang";
 
@@ -25,13 +25,14 @@ const cameraOptions = {
     mediaType: 0,
     allowEdit: true,
 }
-
+/*
 const videoOptions = {
     quality: 30,
     targetWidth: 394,
     targetHeight: 336,
     mediaType: 1,
 }
+
 
 
 function getFileName(pathStr) {
@@ -41,7 +42,7 @@ function getFileName(pathStr) {
     let parts = pathStr.split("/");
     return parts[parts.length - 1];
 }
-
+*/
 async function selectImage() {
     // if (window.plugins.imagePicker) {
     //     window.imagePicker = window.plugins.imagePicker;
@@ -109,8 +110,14 @@ class AddItem extends React.Component {
     }
 
     IsValidInput = () => {
-        return isValid(this.state.label) && this.state.selectedImage && this.state.selectedImage.length > 0
-            && (!this.props.addWord || this.state.selectedVideo && this.state.selectedVideo.length > 0);
+        if (!(isValid(this.state.label) && this.state.selectedImage && this.state.selectedImage.length > 0)) {
+            return false;
+        }
+        if (!this.props.addWord) {
+            return true;
+        } 
+
+        return this.state.selectedVideo && this.state.selectedVideo.length > 0;
     }
 
     saveCategory = async () => {
@@ -238,7 +245,7 @@ class AddItem extends React.Component {
 
                                                     setTimeout(async () => navigator.device.capture.captureVideo(
                                                         (mediaFiles) => {
-                                                            if (mediaFiles.length == 1) {
+                                                            if (mediaFiles.length === 1) {
                                                                 this.setState({ selectedVideo: ("file://" + mediaFiles[0].fullPath), selectInProgress: false })
                                                             }
                                                             this.props.pubSub.publish({ command: 'set-busy', active: false })
@@ -257,9 +264,9 @@ class AddItem extends React.Component {
                                                     setTimeout(async () => {
                                                         selectVideo().then(
                                                             video => this.setState({ selectedVideo: video }),
-                                                            err => this.props.alert.error(translate("AddLoadVideoFailedOrCanceled"))).
-                                                            catch(err => this.props.alert.error(translate("AddLoadVideoFailedOrCanceled"))).
-                                                            finally(
+                                                            err => this.props.alert.error(translate("AddLoadVideoFailedOrCanceled")))
+                                                            .catch(err => this.props.alert.error(translate("AddLoadVideoFailedOrCanceled")))
+                                                            .finally(
                                                                 () => {
                                                                     this.props.pubSub.publish({ command: 'set-busy', active: false })
                                                                     this.setState({ selectInProgress: false })

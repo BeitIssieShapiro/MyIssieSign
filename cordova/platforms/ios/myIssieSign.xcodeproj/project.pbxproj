@@ -55,6 +55,12 @@
 		F6990476903D410F92FB24AE /* GMSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D378762FE084A82892F5044 /* GMSelected.png */; };
 		F83AF3075373457693A6B795 /* pl.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 03F956FC232C4FBA9E2D114D /* pl.lproj */; };
 		FD2E2BF2F38F43EC98343A90 /* CDVLocalFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = C1114BB05C314D738E6F97BA /* CDVLocalFilesystem.m */; };
+		E2CCDCA996B94D71B7FB9B95 /* NSString+SSURLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CB12C1DE304C248CB72BCD /* NSString+SSURLEncoding.m */; };
+		C243847CB24C4E5EADA4E819 /* SocialSharing.m in Sources */ = {isa = PBXBuildFile; fileRef = B503C3EFF8614BE091002F29 /* SocialSharing.m */; };
+		1BE32B22D92E40E3BB072D5E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72BD102D5C554FD5AEE46529 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4A06067A621D4988B4691385 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2709F06D3524687B6075419 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		464E780044C540E3ACFC8615 /* CDVCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA25FAE696F4B77879BE958 /* CDVCapture.m */; };
+		6BB5B389FB5049398F30DF62 /* CDVCapture.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4AABDF4895064EC1AE3149ED /* CDVCapture.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +168,15 @@
 		F04642A483A648CA9F843E84 /* AVFoundation.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = myIssieSign/config.xml; sourceTree = "<group>"; };
 		FD9394465C55472398ED8216 /* Security.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		53CB12C1DE304C248CB72BCD /* NSString+SSURLEncoding.m */ = {isa = PBXFileReference; name = "NSString+SSURLEncoding.m"; path = "cordova-plugin-x-socialsharing/NSString+SSURLEncoding.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		B503C3EFF8614BE091002F29 /* SocialSharing.m */ = {isa = PBXFileReference; name = "SocialSharing.m"; path = "cordova-plugin-x-socialsharing/SocialSharing.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		DCE04A7D9C7541509C91ACAB /* NSString+SSURLEncoding.h */ = {isa = PBXFileReference; name = "NSString+SSURLEncoding.h"; path = "cordova-plugin-x-socialsharing/NSString+SSURLEncoding.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		904678C672464241956FB0ED /* SocialSharing.h */ = {isa = PBXFileReference; name = "SocialSharing.h"; path = "cordova-plugin-x-socialsharing/SocialSharing.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		72BD102D5C554FD5AEE46529 /* Social.framework */ = {isa = PBXFileReference; name = "Social.framework"; path = "System/Library/Frameworks/Social.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		F2709F06D3524687B6075419 /* MessageUI.framework */ = {isa = PBXFileReference; name = "MessageUI.framework"; path = "System/Library/Frameworks/MessageUI.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		7BA25FAE696F4B77879BE958 /* CDVCapture.m */ = {isa = PBXFileReference; name = "CDVCapture.m"; path = "cordova-plugin-media-capture/CDVCapture.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		A0B5C89D92614B2C9AC3F8A7 /* CDVCapture.h */ = {isa = PBXFileReference; name = "CDVCapture.h"; path = "cordova-plugin-media-capture/CDVCapture.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		4AABDF4895064EC1AE3149ED /* CDVCapture.bundle */ = {isa = PBXFileReference; name = "CDVCapture.bundle"; path = "CDVCapture.bundle"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.plug-in; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +193,8 @@
 				392B703B30E14695BC8EEA99 /* ImageIO.framework in Frameworks */,
 				2C2A4E0777A24945BE031754 /* CoreLocation.framework in Frameworks */,
 				8DF4F35FCB5A48FDB8EFC277 /* AVFoundation.framework in Frameworks */,
+				1BE32B22D92E40E3BB072D5E /* Social.framework in Frameworks */,
+				4A06067A621D4988B4691385 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +274,7 @@
 				9EA4E8B54CD54776BAF4C586 /* pt.lproj */,
 				03F956FC232C4FBA9E2D114D /* pl.lproj */,
 				DB08E3193B834AB0A57EC309 /* zh-Hans.lproj */,
+				4AABDF4895064EC1AE3149ED /* CDVCapture.bundle */,
 			);
 			name = Resources;
 			path = myIssieSign/Resources;
@@ -273,6 +291,8 @@
 				60EE4209B415485D85A97E76 /* ImageIO.framework */,
 				21F6C3AA37FA4B539AFF6702 /* CoreLocation.framework */,
 				F04642A483A648CA9F843E84 /* AVFoundation.framework */,
+				72BD102D5C554FD5AEE46529 /* Social.framework */,
+				F2709F06D3524687B6075419 /* MessageUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -334,6 +354,12 @@
 				9B13C12F743F474890922218 /* CDVFile.h */,
 				C465F1934E4048E3ADF4321A /* CDVLocalFilesystem.h */,
 				48ABCA5BD4AC4B90A5780D94 /* CDVAssetLibraryFilesystem.h */,
+				53CB12C1DE304C248CB72BCD /* NSString+SSURLEncoding.m */,
+				B503C3EFF8614BE091002F29 /* SocialSharing.m */,
+				DCE04A7D9C7541509C91ACAB /* NSString+SSURLEncoding.h */,
+				904678C672464241956FB0ED /* SocialSharing.h */,
+				7BA25FAE696F4B77879BE958 /* CDVCapture.m */,
+				A0B5C89D92614B2C9AC3F8A7 /* CDVCapture.h */,
 			);
 			name = Plugins;
 			path = myIssieSign/Plugins;
@@ -380,7 +406,6 @@
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						LastSwiftMigration = 1230;
-						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -447,6 +472,7 @@
 				E26B894C4F7947FD9C0C92A8 /* pt.lproj in Resources */,
 				F83AF3075373457693A6B795 /* pl.lproj in Resources */,
 				3753E43B985B43B4BA1A8C00 /* zh-Hans.lproj in Resources */,
+				6BB5B389FB5049398F30DF62 /* CDVCapture.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +522,9 @@
 				A7A2BD9FF0C6430FB24F82E6 /* CDVFile.m in Sources */,
 				FD2E2BF2F38F43EC98343A90 /* CDVLocalFilesystem.m in Sources */,
 				D648BBCEAD6A494CA63EF082 /* CDVAssetLibraryFilesystem.m in Sources */,
+				E2CCDCA996B94D71B7FB9B95 /* NSString+SSURLEncoding.m in Sources */,
+				C243847CB24C4E5EADA4E819 /* SocialSharing.m in Sources */,
+				464E780044C540E3ACFC8615 /* CDVCapture.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,7 +547,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.0.1;
+				DEVELOPMENT_TEAM = SKNJT9TD9G;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -528,8 +561,9 @@
 				INFOPLIST_FILE = "myIssieSign/myIssieSign-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.beitissieshapiro.myissiesign;
+				PRODUCT_BUNDLE_IDENTIFIER = com.issieshapiro.myissiesign;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "myIssieSign/Classes/myIssieSign-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -545,7 +579,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1.0.1;
+				DEVELOPMENT_TEAM = SKNJT9TD9G;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "myIssieSign/myIssieSign-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
@@ -553,8 +591,9 @@
 				INFOPLIST_FILE = "myIssieSign/myIssieSign-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.beitissieshapiro.myissiesign;
+				PRODUCT_BUNDLE_IDENTIFIER = com.issieshapiro.myissiesign;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "myIssieSign/Classes/myIssieSign-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

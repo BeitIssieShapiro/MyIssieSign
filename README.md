@@ -10,6 +10,8 @@
 - `cordova plugin add cordova-plugin-camera --save`
 - `cordova plugin add https://github.com/Telerik-Verified-Plugins/ImagePicker.git --save`
 - `cordova plugin add cordova-plugin-file --save`
+- `cordova plugin add cordova-plugin-x-socialsharing --save`
+- `cordova plugin add cordova-plugin-media-capture --save`
 
 ### Run in Browser 
 Note: some features won't work, as it requires device API such as filesystem

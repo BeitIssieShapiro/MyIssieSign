@@ -1,10 +1,10 @@
 //import {mainJson} from './JsonLocalCall'
-import { listAdditionsFolders, listWordsInFolder } from './file'
+import { listAdditionsFolders, listWordsInFolder, adjustLocalPath } from './file'
 
 let gWordsFlat
-let gAdditionalExistingCategories = []
-let gAdditionalNewCategories = []
-let gCategories
+//let gAdditionalExistingCategories = undefined
+let gAdditionalNewCategories = undefined
+let gCategories = undefined
 let gBuiltInCategories = [
         {
             "name": "הדרכה",
@@ -37,7 +37,7 @@ async function loadAdditional() {
     if (gAdditionalNewCategories) {
         return gAdditionalNewCategories;
     }
-    gAdditionalExistingCategories = [];
+    //gAdditionalExistingCategories = [];
     gAdditionalNewCategories = [];
 
     try {
@@ -47,7 +47,7 @@ async function loadAdditional() {
         for (let i = 0; i < addedCategories.length; i++) {
             let words = await listWordsInFolder(addedCategories[i])
 
-            gAdditionalNewCategories.push({ ...addedCategories[i], id: addedCategories[i].name, imageName: addedCategories[i].nativeURL + "default.jpg", type: "added", words });
+            gAdditionalNewCategories.push({ ...addedCategories[i], id: addedCategories[i].name, imageName: adjustLocalPath(decodeURI( addedCategories[i].nativeURL)) + "default.jpg", type: "added", words });
 
         }
         gCategories = getAllCategories();
@@ -59,39 +59,39 @@ async function loadAdditional() {
 }
 
 export function getAllCategories() {
+    if (!gAdditionalNewCategories) {
+        return gBuiltInCategories
+    }
+
     if (gCategories) {
         return gCategories
     }
+   
+    return [...gBuiltInCategories, ...gAdditionalNewCategories];
 
-    gCategories = gBuiltInCategories
-
-    if (!gAdditionalNewCategories) {
-        return gCategories
-    }
-    gCategories = [...gCategories, ...gAdditionalNewCategories];
-
-    return gCategories;
+    //return gCategories;
 }
 
 export function getWordsByCategoryID(categoryId) {
     //alert("x:" + JSON.stringify(gAdditionalExistingCategories) +","+ categoryId)
-    let existingAddCategory = gAdditionalExistingCategories.find(c => c.id === categoryId)
+    //let existingAddCategory = gAdditionalExistingCategories.find(c => c.id === categoryId)
 
     let foundCategory = getAllCategories().find(cat => cat.id === categoryId)
     //alert(JSON.stringify(foundCategory))
-    return safeMergeWordsArray(foundCategory, existingAddCategory);
+    //return safeMergeWordsArray(foundCategory, existingAddCategory);
+    return foundCategory.words
 }
 
 //refresh cache
 export async function reloadAdditionals() {
-    gAdditionalExistingCategories = undefined
+    //gAdditionalExistingCategories = undefined
     gAdditionalNewCategories = undefined
     gCategories = undefined
     gWordsFlat = undefined
 
     await loadAdditional()
 }
-
+/*
 function safeMergeWordsArray(a1, a2) {
     if (a1 && !a2) {
         //        alert(JSON.stringify(a1.words))
@@ -106,4 +106,4 @@ function safeMergeWordsArray(a1, a2) {
         return a1.words.concat(a2.words)
     }
     return [];
-}
+}*/

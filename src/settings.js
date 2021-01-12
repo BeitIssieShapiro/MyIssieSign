@@ -27,11 +27,11 @@ export function RadioSetting(props) {
         justifyContent: 'space-between',
         alignItems: 'center'
       }}>
-        <input type="radio" id="he" name="lang" value="he" checked={props.value == "he" || !props.value}
+        <input type="radio" id="he" name="lang" value="he" checked={props.value === "he" || !props.value}
           onChange={(e) => props.onChange ? props.onChange(e.currentTarget.value) : {}}
         />
         <label for="he">א ב ג</label><br />
-        <input type="radio" id="en" name="lang" value="en" checked={props.value == "en"}
+        <input type="radio" id="en" name="lang" value="en" checked={props.value === "en"}
           onChange={(e) => props.onChange ? props.onChange(e.currentTarget.value) : {}}
         />
 

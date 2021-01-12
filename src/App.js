@@ -1,5 +1,4 @@
 import './css/App.css';
-import { imageLocalCall } from "./apis/ImageLocalCall";
 
 import React from 'react';
 import Word from "./containers/Word";
@@ -23,7 +22,7 @@ import {
     scrollLeft, scrollRight,
     saveWordTranslateX, saveRootTranslateX, setTranslateX,
     getTheme,
-    ALLOW_SWIPE_KEY, ALLOW_ADD_KEY, saveSettingKey, getBooleanSettingKey
+    ALLOW_SWIPE_KEY, saveSettingKey, getBooleanSettingKey
 } from "./utils/Utils";
 import Shell from "./containers/Shell";
 import IssieBase from './IssieBase';
@@ -123,6 +122,7 @@ class App extends IssieBase {
         }
 
         reloadAdditionals().then(() => this.forceUpdate());
+        //setTimeout(()=> reloadAdditionals().then(() => this.forceUpdate()), 2000);
     }
 
     componentDidUpdate() {
@@ -268,16 +268,16 @@ class App extends IssieBase {
 
         let deleteButton = this.state.showDelete ? 
             <TrashButton slot="start-bar" onClick={this.state.showDelete}/> : null;
-        // let shareButton = this.state.showShare ? 
-        //     <ShareButton slot="start-bar" onClick={this.state.showShare}/> : null;
-        let shareButton = <ShareButton slot="start-bar" onClick={()=>
-            window.cordova.exec((response)=> {
-                alert(JSON.stringify(response))
-            },
-                (error) => {},
-                "ZipUtilsPlugin",
-                "sayHello")
-        } />
+        let shareButton = this.state.showShare ? 
+            <ShareButton slot="start-bar" onClick={this.state.showShare}/> : null;
+        // let shareButton = <ShareButton slot="start-bar" onClick={()=>
+        //     window.cordova.exec((response)=> {
+        //         alert(JSON.stringify(response))
+        //     },
+        //         (error) => {},
+        //         "ZipUtilsPlugin",
+        //         "sayHello")
+        // } />
 
         document.preventTouch = true;
 

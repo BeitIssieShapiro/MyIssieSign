@@ -106,6 +106,8 @@
     <preference name="PaginationMode" value="unpaginated" />
     <preference name="splashscreen" value="splash" />
     <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="scheme" value="app" />
+    <preference name="hostname" value="localhost" />
     <feature name="ImagePicker">
         <param name="ios-package" value="SOSPicker" />
     </feature>
@@ -119,5 +121,12 @@
     </feature>
     <feature name="ZipUtilsPlugin">
         <param name="ios-package" value="ZipUtilsPlugin" />
+    </feature>
+    <feature name="SocialSharing">
+        <param name="ios-package" value="SocialSharing" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Capture">
+        <param name="ios-package" value="CDVCapture" />
     </feature>
 </widget>

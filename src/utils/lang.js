@@ -35,6 +35,7 @@ var strings = {
         "InfoSavedSuccessfully":"נשמר בהצלחה",
         "MissingImageAlt":"ללא תמונה",
         "InfoSharingWords":"משתף מילים...",
+        "InfoSharingCategory": "משתף קטגוריה...",
         "InfoSharingFailed":"שיתוף נכשל",
         "ShareWords": "שיתוף מילים",
 
@@ -57,7 +58,7 @@ var strings = {
 
     },
     "en": {
-
+            "AppTitle":"My Sign Language"
     }
 }
 
@@ -78,7 +79,7 @@ export function setLanguage(lang) {
 }
 
 export function isRTL() {
-    return gLang == "he" || gLang == "ar"
+    return gLang === "he" || gLang === "ar"
 }
 
 export function translate(id, ...args) {

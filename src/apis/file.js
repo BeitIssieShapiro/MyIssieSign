@@ -1,11 +1,15 @@
 import JSZip from 'jszip'
-import {isBrowser} from '../utils/Utils'
+import { isBrowser } from '../utils/Utils'
 import { translate } from '../utils/lang';
 
 
 let testWords = [{ name: "test word", id: 1000, type: 'file' }] //, { name: "test word2", id: 1001, type: 'file' }];
 let testCategories = [{ name: "test", nativeURL: "file:///none/" }];
 
+
+export function adjustLocalPath(path) {
+    return window.WkWebView.convertFilePath(path);
+}
 
 export async function createDir(dirName) {
     return new Promise((resolve, reject) => window.resolveLocalFileSystemURL(getDocDir(), (docDir) => {
@@ -97,10 +101,27 @@ function share(filePath, title, mimetype, onSuccess, onError) {
 export async function shareWord(word) {
     if (!word) return;
 
-    let paths = [word.videoName, word.imageName];
+    let paths = [word.videoNativeURL, word.imageNativeURL];
     let zipPath = await zipWord(paths);
     zipPath = zipPath.replace("file://", "")
-    share(zipPath, "", "", () => { }, (err) => alert(err));
+    share(zipPath, "", "", () => { }, (err) => {throw(err)});
+}
+
+export async function shareCategory(cat) {
+    if (!cat) return;
+
+    let words = cat.words;
+
+    //console.log(JSON.stringify(cat))
+
+    let paths = [cat.nativeURL + "default.jpg"];
+    words.forEach(w => {
+        paths.push(w.videoNativeURL);
+        paths.push(w.imageNativeURL);
+    });
+    let zipPath = await zipWord(paths);
+    zipPath = zipPath.replace("file://", "")
+    share(zipPath, "", "", () => { }, (err) => {throw (err)} );
 }
 
 function waitForCordova(ms) {
@@ -133,6 +154,8 @@ export async function listAdditionsFolders() {
             resolve([]);
             return;
         }
+
+        console.log("Document folder: " + getDocDir());
 
         window.resolveLocalFileSystemURL(getDocDir() + "Additions/", (additionsDir) => {
             var reader = additionsDir.createReader();
@@ -176,7 +199,7 @@ export async function listWordsInFolder(dirEntry) {
         var reader = dirEntry.createReader();
         var words = [];
         reader.readEntries(entries => {
-            for (let entry of entries) {
+            for (var entry of entries) {
                 if (entry.name === "default.jpg") continue;
                 let period = entry.name.lastIndexOf('.');
                 let fileName = entry.name.substring(0, period);
@@ -186,10 +209,14 @@ export async function listWordsInFolder(dirEntry) {
                     words.push({ name: fileName, id: 1000 + words.length, type: 'file' })
                     wordIndex = words.length - 1;
                 }
+                let fileUri = adjustLocalPath(decodeURI( entry.nativeURL));
                 if (fileExt === 'jpg' || fileExt === 'png') {
-                    words[wordIndex].imageName = entry.nativeURL;
+                    words[wordIndex].imageName = fileUri;
+                    words[wordIndex].imageNativeURL = entry.nativeURL;
                 } else {
-                    words[wordIndex].videoName = entry.nativeURL;
+                    words[wordIndex].videoName = fileUri;
+                    words[wordIndex].videoNativeURL = entry.nativeURL;
+
                 }
             }
 

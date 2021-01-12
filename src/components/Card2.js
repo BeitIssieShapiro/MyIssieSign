@@ -4,7 +4,6 @@ import "../css/Tile.css";
 import "../css/rope.css";
 
 import { imageLocalCall } from "../apis/ImageLocalCall";
-import Rope from "../components/Rope";
 import { getTheme } from "../utils/Utils";
 import longPress from '../apis/longPress';
 import { Link } from "react-router-dom";
@@ -13,8 +12,12 @@ import { Selected } from "./ui-elements";
 export default function Card2(props) {
     const longPressEvent = props.longPressCallback ? longPress(() => props.longPressCallback(), 500) : {};
 
+    
     let imageSrc = props.imageName ? imageLocalCall(props.imageName) : undefined;
-
+    imageSrc = decodeURI(imageSrc);
+    console.log("Image URL: " + imageSrc)
+    //imageSrc = window.WkWebView.convertFilePath(imageSrc)
+    //imageSrc = imageSrc.replace("file://", "cdvfile://localhost/persistent")
     let image2 = props.imageName2 ? <img className="tileImg" src={imageLocalCall(props.imageName2)} alt="card Placeholder"></img> : "";
     let cardDouble = props.imageName2 ? { '--card-width': '100%' } : {};
     let url = "";
@@ -27,6 +30,8 @@ export default function Card2(props) {
             url = "/video/" + encodeURIComponent(props.videoName) + "/" + props.themeId + "/" + encodeURIComponent(props.cardName) + "/-";
         }
     }
+
+    console.log("Video URL: " + url)
     let innerBody = (
         <div className="card" style={cardDouble} theme={getTheme(props.themeId)}>
             <div className={"header" + (props.binder?" binder":" clip")}></div>

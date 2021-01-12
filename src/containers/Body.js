@@ -7,7 +7,7 @@ import { rootTranslateX, getThemeFlavor, calcWidth } from "../utils/Utils";
 import IssieBase from "../IssieBase";
 import Shelf from "./Shelf";
 
-import { deleteCategory } from '../apis/file'
+import { deleteCategory, shareCategory } from '../apis/file'
 import { reloadAdditionals } from '../apis/catalog'
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
@@ -45,6 +45,25 @@ class Body extends IssieBase {
                                 ]
                             });
 
+                        }
+                    }
+                });
+
+
+                this.props.pubSub.publish({
+                    command: "show-share", callback: () => {
+                        console.log("Share category pressed");
+                        if (this.state.selectedCategory) {
+                            this.props.pubSub.publish({ command: 'set-busy', active: true, text: translate("InfoSharingCategory") });
+                            shareCategory(this.state.selectedCategory).then(
+                                //Success:
+                                () => this.toggleSelect(null, true),
+                                //error
+                                (e) => this.props.alert.error(translate("InfoSharingFailed")+"\n" + e)
+
+                            ).finally(() =>
+                                this.props.pubSub.publish({ command: 'set-busy', active: false })
+                            );
                         }
                     }
                 });
@@ -107,7 +126,7 @@ class Body extends IssieBase {
             lines[curLine].push(card);
         }
 
-        console.log("Body: narrow: "+(narrow?'yes':'no')+"Height: " + window.innerHeight + ", window.innerWidth=" + window.innerWidth + ", Width: " + width);
+        console.log("Body: narrow: "+(narrow?'yes':'no')+" Height: " + window.innerHeight + ", window.innerWidth=" + window.innerWidth + ", Width: " + width + ", isMobile=" + (this.props.isMobile?'yes':'no'));
         let widthStr = width + 'px';
         if (this.props.isMobile && narrow) {
             widthStr = '100%'

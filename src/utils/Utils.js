@@ -109,8 +109,9 @@ export function calcWidth(elementCount, windowHeight, windowWidth, tileH, tileW,
     if (inSearch) {
         rows = Math.floor(rows / 2);
     }
-    let cols = Math.ceil(elementCount / rows);
-    return cols * tileW;
+    let maxCols = Math.ceil(elementCount / rows);
+    let minCols = Math.floor(windowWidth/tileW)
+    return Math.max(maxCols, minCols) * tileW;
 }
 
 //exluded: 8,12,20,14,6
@@ -159,11 +160,9 @@ export const themeMap = {
 };
 
 var videoMonitor = undefined;
-var gIsLandscape = false;
 
 export const VideoToggle = (on, addButtons, isLandscape) => {
     console.log("toggle: "+ on)
-    gIsLandscape = isLandscape;
     let video = document.getElementById("player");
     let playerHost = document.getElementById("playerhost")
     playerHost.style.visibility = (on ? "visible" : "hidden");
